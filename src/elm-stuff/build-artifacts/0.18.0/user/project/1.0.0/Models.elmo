@@ -1,0 +1,36 @@
+var _user$project$Models$initialModel = {
+	barWeight: 45,
+	enteredWeight: 0,
+	totalPlateWeight: 0,
+	typesOfPlates: {
+		ctor: '::',
+		_0: '45',
+		_1: {
+			ctor: '::',
+			_0: '35',
+			_1: {
+				ctor: '::',
+				_0: '25',
+				_1: {
+					ctor: '::',
+					_0: '10',
+					_1: {
+						ctor: '::',
+						_0: '5',
+						_1: {
+							ctor: '::',
+							_0: '2.5',
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		}
+	},
+	shouldShowResults: false,
+	error: ''
+};
+var _user$project$Models$Model = F6(
+	function (a, b, c, d, e, f) {
+		return {barWeight: a, enteredWeight: b, totalPlateWeight: c, typesOfPlates: d, shouldShowResults: e, error: f};
+	});
