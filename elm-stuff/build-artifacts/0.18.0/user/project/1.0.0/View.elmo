@@ -3,7 +3,7 @@ var _user$project$View$getNumberOfEachPlate = F3(
 		getNumberOfEachPlate:
 		while (true) {
 			if (_elm_lang$core$Native_Utils.eq(remainingPlateWeight, 0)) {
-				return A2(_elm_lang$core$Debug$log, 'numberOfEachPlate', accumulatedArray);
+				return accumulatedArray;
 			} else {
 				var plateWeights = {
 					ctor: '::',
@@ -53,57 +53,68 @@ var _user$project$View$getNumberOfEachPlate = F3(
 	});
 var _user$project$View$createResults = F4(
 	function (model, plateOutputs, index, accumulatedList) {
-		if (_elm_lang$core$Native_Utils.eq(
-			_elm_lang$core$List$length(plateOutputs),
-			0)) {
-			return A2(_elm_lang$core$Debug$log, 'Final Results', accumulatedList);
-		} else {
-			var plateAmount = A2(
-				_elm_lang$core$Maybe$withDefault,
-				'blah',
-				A2(_elm_community$list_extra$List_Extra$getAt, index, model.typesOfPlates));
-			var plateInfo = A2(
-				_elm_lang$core$Maybe$withDefault,
-				'blah',
-				_elm_lang$core$List$head(plateOutputs));
-			if (!_elm_lang$core$Native_Utils.eq(plateInfo, '')) {
-				var html = {
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$p,
-						{ctor: '[]'},
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html$text(
-								_elm_lang$core$String$concat(
-									{
-										ctor: '::',
-										_0: plateAmount,
-										_1: {
+		createResults:
+		while (true) {
+			if (_elm_lang$core$Native_Utils.eq(
+				_elm_lang$core$List$length(plateOutputs),
+				0)) {
+				return accumulatedList;
+			} else {
+				var plateAmount = A2(
+					_elm_lang$core$Maybe$withDefault,
+					'blah',
+					A2(_elm_community$list_extra$List_Extra$getAt, index, model.typesOfPlates));
+				var plateInfo = A2(
+					_elm_lang$core$Maybe$withDefault,
+					'blah',
+					_elm_lang$core$List$head(plateOutputs));
+				if (!_elm_lang$core$Native_Utils.eq(plateInfo, '')) {
+					var html = {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$p,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(
+									_elm_lang$core$String$concat(
+										{
 											ctor: '::',
-											_0: '\'s -- ',
+											_0: plateAmount,
 											_1: {
 												ctor: '::',
-												_0: plateInfo,
-												_1: {ctor: '[]'}
+												_0: '\'s -- ',
+												_1: {
+													ctor: '::',
+													_0: plateInfo,
+													_1: {ctor: '[]'}
+												}
 											}
-										}
-									})),
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				};
-				return _elm_lang$core$Debug$log(
-					_elm_lang$core$Basics$toString(plateOutputs))(_elm_lang$core$Debug$log)(
-					_elm_lang$core$Basics$toString(plateInfo))(_elm_lang$core$Debug$log)('Not Empty')(_elm_lang$core$Debug$log)(
-					_elm_lang$core$Basics$toString(html))(_user$project$View$createResults)(model)(
-					A2(_elm_lang$core$List$drop, 1, plateOutputs))(index + 1)(
-					A2(_elm_lang$core$List$append, accumulatedList, html));
-			} else {
-				return _elm_lang$core$Debug$log(
-					_elm_lang$core$Basics$toString(plateOutputs))(_elm_lang$core$Debug$log)(
-					_elm_lang$core$Basics$toString(plateInfo))(_elm_lang$core$Debug$log)('Empty')(_user$project$View$createResults)(model)(
-					A2(_elm_lang$core$List$drop, 1, plateOutputs))(index + 1)(accumulatedList);
+										})),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					};
+					var _v3 = model,
+						_v4 = A2(_elm_lang$core$List$drop, 1, plateOutputs),
+						_v5 = index + 1,
+						_v6 = A2(_elm_lang$core$List$append, accumulatedList, html);
+					model = _v3;
+					plateOutputs = _v4;
+					index = _v5;
+					accumulatedList = _v6;
+					continue createResults;
+				} else {
+					var _v7 = model,
+						_v8 = A2(_elm_lang$core$List$drop, 1, plateOutputs),
+						_v9 = index + 1,
+						_v10 = accumulatedList;
+					model = _v7;
+					plateOutputs = _v8;
+					index = _v9;
+					accumulatedList = _v10;
+					continue createResults;
+				}
 			}
 		}
 	});

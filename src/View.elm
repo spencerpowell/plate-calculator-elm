@@ -51,7 +51,7 @@ renderPlateInfos model plateOutputs =
 createResults: Model -> List String -> Int -> List (Html Msg) -> List (Html Msg)
 createResults model plateOutputs index accumulatedList =
     if List.length plateOutputs == 0 then
-        Debug.log "Final Results" accumulatedList
+        accumulatedList
     else
         let plateInfo = List.head plateOutputs
                                     |> Maybe.withDefault "blah"
@@ -61,19 +61,12 @@ createResults model plateOutputs index accumulatedList =
             if plateInfo /= "" then
                 let html = [ p [] [ text (String.concat [plateAmount, "'s -- ", plateInfo]) ]]
                 in
-                    Debug.log (toString plateOutputs)
-                    Debug.log (toString plateInfo)
-                    Debug.log "Not Empty"
-                    Debug.log (toString html)
                     createResults
                         model
                         (List.drop 1 plateOutputs)
                         (index + 1)
                         (List.append accumulatedList html)
             else
-                Debug.log (toString plateOutputs)
-                Debug.log (toString plateInfo)
-                Debug.log "Empty"
                 createResults
                     model
                     (List.drop 1 plateOutputs)
@@ -83,7 +76,7 @@ createResults model plateOutputs index accumulatedList =
 getNumberOfEachPlate: Int -> Int -> List Int -> List Int
 getNumberOfEachPlate remainingPlateWeight index accumulatedArray =
     if remainingPlateWeight == 0 then
-        Debug.log "numberOfEachPlate" accumulatedArray
+        accumulatedArray
     else
         let
             plateWeights = [90, 70, 50, 20, 10, 5]
