@@ -6,7 +6,6 @@ import Update exposing (update)
 import View exposing (view)
 import Html exposing (program)
 
-
 init : ( Model, Cmd Msg )
 init =
     ( initialModel, Cmd.none )
