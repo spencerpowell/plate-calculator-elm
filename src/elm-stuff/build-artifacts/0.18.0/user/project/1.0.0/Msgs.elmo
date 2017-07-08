@@ -1,4 +1,0 @@
-var _user$project$Msgs$EnteredWeight = function (a) {
-	return {ctor: 'EnteredWeight', _0: a};
-};
-var _user$project$Msgs$OnCalculateClick = {ctor: 'OnCalculateClick'};
